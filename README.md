@@ -78,7 +78,15 @@ This project is live on [Vercel](https://vercel.com).
 
 ## 📸 Screenshots
 
+Home page
 ![Home Page](./assets/demo-home.png)
+
+Order page
 ![Order Form](./assets/demo-order.png)
+
+Bill 
+![Order Form](./assets/demo-bill.png)
+
+Admin page
 ![Admin Dashboard](./assets/demo-admin.png)
 

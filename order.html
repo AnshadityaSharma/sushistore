@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="CSS/sections/order.css" />
+    <title>Order Sushi</title>
+    <!-- AOS Animation CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+</head>
+<body>
+
+<div class="order-container">
+    <h1>Place Your Order</h1>
+    <form id="order-form">
+        <input type="text" id="name" placeholder="Your Name" required />
+        <input type="email" id="email" placeholder="Your Email" required />
+        <input type="text" id="address" placeholder="Delivery Address" required />
+
+        <select id="sushi-type" required>
+            <option value="">Select Sushi Type</option>
+            <option value="Chez Sushi">Chez Sushi - $21.00</option>
+            <option value="Original Sushi">Original Sushi - $24.00</option>
+            <option value="Ramen Legendo">Ramen Legendo - $27.00</option>
+        </select>
+
+        <input type="number" id="quantity" placeholder="Quantity" min="1" required />
+
+        <button type="submit" class="order-btn">Place Order</button>
+    </form>
+</div>
+
+<!-- Receipt Popup -->
+<div id="receipt-popup" class="hidden">
+    <h2>Order Receipt</h2>
+    <p id="receipt-text"></p>
+    <p id="thank-you-message" class="hidden">Thank you for your order! 🍣</p>
+    <button id="close-popup">Close</button>
+</div>
+<!-- Firebase SDKs -->
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    import { getDatabase, ref, push, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js";
+    
+    const firebaseConfig = {
+      apiKey: "AIzaSyD3FDIsFhpCbCIPiB9cysPbx_XD_Aq3dKw",
+      authDomain: "sushiman-database.firebaseapp.com",
+      databaseURL: "https://sushiman-database-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "sushiman-database",
+      storageBucket: "sushiman-database.firebasestorage.app",
+      messagingSenderId: "1060099086485",
+      appId: "1:1060099086485:web:6c6c6dc5f009f9fadde39c",
+      measurementId: "G-GGJL038ZW3"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    
+    // Make database available globally
+    window.firebaseDatabase = database;
+    window.firebasePush = push;
+    window.firebaseRef = ref;
+    window.serverTimestamp = serverTimestamp;
+  </script>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
